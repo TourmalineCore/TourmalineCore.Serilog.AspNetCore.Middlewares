@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.0.0-alpha.2](https://github.com/TourmalineCore/TourmalineCore.Serilog.AspNetCore.Middlewares/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-08-31)
+
+
+### Bug Fixes
+
+* delete logging configuration ([9ed3fc3](https://github.com/TourmalineCore/TourmalineCore.Serilog.AspNetCore.Middlewares/commit/9ed3fc341714c913f944deb32a60b7e930d3c4ab))
+
 # 1.0.0-alpha.1 (2021-08-31)
 
 
