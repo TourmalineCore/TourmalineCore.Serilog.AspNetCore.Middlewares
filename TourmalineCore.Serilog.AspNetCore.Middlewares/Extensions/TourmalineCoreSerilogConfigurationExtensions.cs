@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
+using TourmalineCore.Serilog.Formatting.Tiny.Formatters;
 
 namespace TourmalineCore.Serilog.AspNetCore.Middlewares.Extensions
 {

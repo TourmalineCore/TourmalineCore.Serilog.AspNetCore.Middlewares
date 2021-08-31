@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using TourmalineCore.Logging.Extensions.AspNetCore.Contracts;
+using TourmalineCore.Serilog.AspNetCore.Middlewares.Contracts;
 
 namespace Example.BaseMiddleware
 {
@@ -17,10 +17,11 @@ namespace Example.BaseMiddleware
             }
 
             return Task.FromResult(new Dictionary<string, string>
-            {
-                { "login", "login" },
-                { "phoneNumber", "login" }
-            });
+                    {
+                        { "login", "login" },
+                        { "phoneNumber", "login" },
+                    }
+                );
         }
     }
 }

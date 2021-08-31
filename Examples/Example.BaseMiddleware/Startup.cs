@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TourmalineCore.Logging.Extensions.AspNetCore.Extensions;
+using TourmalineCore.Serilog.AspNetCore.Middlewares.Extensions;
 
 namespace Example.BaseMiddleware
 {
@@ -26,21 +26,18 @@ namespace Example.BaseMiddleware
             }
 
             app.UseCors(
-                builder => builder
-                    .AllowAnyHeader()
-                    .SetIsOriginAllowed(host => true)
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin()
-            );
+                    builder => builder
+                        .AllowAnyHeader()
+                        .SetIsOriginAllowed(host => true)
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin()
+                );
 
             app.UseRouting();
 
             app.UseTourmalineCoreLogging();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
