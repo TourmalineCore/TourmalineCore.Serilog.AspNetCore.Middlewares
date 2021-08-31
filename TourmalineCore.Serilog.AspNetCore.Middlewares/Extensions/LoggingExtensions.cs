@@ -6,12 +6,13 @@ using Serilog;
 using TourmalineCore.Serilog.AspNetCore.Middlewares.Contracts;
 using TourmalineCore.Serilog.AspNetCore.Middlewares.DefaultContractsRealization;
 using TourmalineCore.Serilog.AspNetCore.Middlewares.Middlewares;
+using TourmalineCore.Serilog.Formatting.Tiny.Formatters.Extensions;
 
 namespace TourmalineCore.Serilog.AspNetCore.Middlewares.Extensions
 {
     public static class LoggingExtensions
     {
-        public static IServiceCollection AddTourmalineCoreLogging(this IServiceCollection services)
+        public static IServiceCollection AddTourmalineCoreLoggingWithMiddlewares(this IServiceCollection services)
         {
             return services
                 .AddTransient<ILoggingValuesGenerator, LoggingValuesGenerator>()

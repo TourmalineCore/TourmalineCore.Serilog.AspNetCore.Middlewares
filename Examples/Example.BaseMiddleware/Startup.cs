@@ -11,7 +11,7 @@ namespace Example.BaseMiddleware
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddTourmalineCoreLogging()
+                .AddTourmalineCoreLoggingWithMiddlewares()
                 .AddLoggingValuesGenerator<LoggingValuesGenerator>();
 
             services.AddControllers();
