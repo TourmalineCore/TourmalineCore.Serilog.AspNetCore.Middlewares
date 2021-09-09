@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Context;
+using Serilog.Core;
+using Serilog.Core.Enrichers;
 using TourmalineCore.Serilog.AspNetCore.Middlewares.Contracts;
 
 namespace TourmalineCore.Serilog.AspNetCore.Middlewares.Middlewares
@@ -44,11 +46,15 @@ namespace TourmalineCore.Serilog.AspNetCore.Middlewares.Middlewares
                 foreach (var (key, value) in loggingValues)
                 {
                     _diagnosticContext.Set(key, value);
+                }
 
-                    using (LogContext.PushProperty(key, value))
-                    {
-                        await _next(httpContext);
-                    }
+                var enrichers = loggingValues
+                    .Select(pair => new PropertyEnricher(pair.Key, pair.Value))
+                    .ToArray<ILogEventEnricher>();
+
+                using (LogContext.Push(enrichers))
+                {
+                    await _next(httpContext);
                 }
 
                 return;
