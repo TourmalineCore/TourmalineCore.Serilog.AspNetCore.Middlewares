@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.0.0-alpha.3](https://github.com/TourmalineCore/TourmalineCore.Serilog.AspNetCore.Middlewares/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-09-09)
+
+
+### Bug Fixes
+
+* **logging-middleware:** fixes executing the next delegate multiple times if you have more than one value to enrich ([db1823c](https://github.com/TourmalineCore/TourmalineCore.Serilog.AspNetCore.Middlewares/commit/db1823cab04a7566a523dd60bca1f325a50281ad))
+
 # [1.0.0-alpha.2](https://github.com/TourmalineCore/TourmalineCore.Serilog.AspNetCore.Middlewares/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-08-31)
 
 
